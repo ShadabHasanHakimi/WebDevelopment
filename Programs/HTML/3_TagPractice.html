@@ -4,6 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        table,td,th{
+            border: 2px solid black;
+            /* For making single border */
+            border-collapse: collapse;
+        }
+    </style>
 </head>
 <body>
     <!-- para -->
@@ -53,6 +60,61 @@
     <q>q tag</q>
 
     <blockquote cite="https://www.thecodehelp.in">blockquote tag</blockquote>
+
+    <!-- How to make a table -->
+    <!-- <table>
+        <caption>Savings</caption>
+        <tr>
+            <td>Month</td>
+            <td>Savings</td>
+        </tr>
+        <tr>
+            <td>Jan</td>
+            <td>100</td>
+        </tr>
+        <tr>
+            <td>Feb</td>
+            <td>200</td>
+        </tr>
+        <tr>
+            <td>March</td>
+            <td>400</td>
+        </tr>
+        <tr>
+            <td>Total</td>
+            <td>700</td>
+        </tr>
+    </table> -->
+    <table>
+        <caption>Savings</caption>
+        <thead>
+            <tr>
+            <th>Month</th>
+            <th>Savings</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr>
+            <td>Jan</td>
+            <td>100</td>
+        </tr>
+        <tr>
+            <td>Feb</td>
+            <td>200</td>
+        </tr>
+        <tr>
+            <td>March</td>
+            <td>400</td>
+        </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+            <td>Total</td>
+            <td>700</td>
+        </tr>
+        </tfoot>
+        
+    </table>
 </pre>
 </body>
 </html>
