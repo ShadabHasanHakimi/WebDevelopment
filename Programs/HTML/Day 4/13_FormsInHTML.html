@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms in HTML</title>
+</head>
+<body>
+    <form action="/action">
+        Username : <input type="text">
+        <br>
+        Password : <input type="password">      <!-- Input text will be hidden -->
+        <br>
+        Age : <input type="number">     <!-- Only Numbers can be typed -->
+        <br>
+        Time : <input type="time">
+        <br>
+        Fav color : <input type="color">
+        <br>
+        DOB : <input type="date">
+        <br>
+        Email : <input type="email">  <!-- entered text should be in the type of abc@gmail.com-->
+        <br>
+        <br>
+
+        <!-- Placeholder attribute -->
+        <!-- It will vanish while entering details -->
+        Name : <input type="text" placeholder="Enter your name here..." name="" id="">
+        <br><br>
+
+        <!-- Label : It is used to integrate the input tag with its field -->
+        <label for="">
+            Enter your name : 
+            <input type="text">
+        </label>
+    </form>
+</body>
+</html>
