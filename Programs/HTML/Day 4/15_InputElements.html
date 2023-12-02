@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Elements</title>
+</head>
+<body>
+    <!-- Checkbox Element : you can only select one option if more than one options are given. -->
+    <!-- If we use checked attribute then the checkbox will be checked by default -->
+    <form action="/server">
+        <input type="checkbox" name="age" id="age" checked>
+        <label for="age">I am 18+</label>
+        <button type="submit">Submit</button>
+    </form>
+
+    <br>
+
+    <!-- Radio Button -->
+    <form action="/server">
+        <!-- name should be different -->
+        <input type="radio" name="fruit1" id="apple">
+        <label for="apple">Apple</label>
+        <input type="radio" name="fruit2" id="banana">
+        <label for="banana">Banana</label>
+        <input type="radio" name="fruit3" id="Mango">
+        <label for="banana">Mango</label>
+        <button>Submit</button>
+    </form>
+
+    <!-- Dropdowns -->
+    <div>
+        <h2>Select your profession : </h2>
+        <select name="profession" id="profession">
+            <option>Select your option</option>
+            <option value="student">Student</option>
+            <option value="dev">Developer</option>
+            <option value="sde">SDE</option>
+        </select>
+        <button>Submit</button>
+    </div>
+
+    <br>
+
+    <!-- Range Element -->
+    <label for="vol">Select your volume level :</label>
+    <form action="/server">
+        <!-- step is used to define the gap between each increase -->
+        <!-- value defines the default value of the range -->
+        <input type="range" min="0" max="100" name="vol" id="vol" step="1" value="70">
+        <button>Submit</button>
+    </form>
+
+    <br>
+
+    <!-- Text Area element -->
+    <label for="feedback">Give us your valuable feedback: </label>
+    <form action="/server">
+        <!-- by default row are set to 2 -->
+        <textarea name="feedback" id="feedback" cols="30" rows="5"></textarea>
+        <button>Submit</button>
+    </form>
+</body>
+</html>
