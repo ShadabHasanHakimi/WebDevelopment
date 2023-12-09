@@ -1,0 +1,22 @@
+/* Color property : It is a foreground propergy */
+/* Background color : It is a background property */
+/* As we know that h1 and p are block elements, so they will take full line */
+h1 {
+  color: blue;
+  background-color: gray;
+}
+
+p {
+  color: red;
+  background-color: magenta;
+}
+
+button {
+  color: cornflowerblue;
+  /* background-color: aliceblue; */
+  background: black; /* we can also use background property but in most cases we will don't use it */
+}
+
+/* Color system in CSS */
+/* 1. Named Colors : There are 140-150 colors browser recognizes */
+/* 2. RGB system : In this color is used in the form of combination of r,g and b. for eg: red is rgb(255,0,0), black is rgb(0,0,0), blue is rgb(0,0,255) */
