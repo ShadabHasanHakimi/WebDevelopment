@@ -1,0 +1,57 @@
+/* Text properties:
+1. text-align : left/start, center/end, right, justify
+2. font-weight : normal(400), bold(700), 100-900, bolder, lighter
+3. text-decoration : underline, overling, line-through, none(used to remove underline of <a> tag
+4. line-height : 10, it means 10 times of normal
+5. letter-spacing : 1px
+6. font-size(imp) : 10px, large, small, medium, larger, etc
+*/
+
+
+/* 
+Font size units in CSS
+Absolute        Relative
+px              %
+pt              em
+pc              rem
+cm              ch
+mm              vh
+in              vw + many more 
+
+1 in = 96 px
+pixels are not suitable for responsive website
+*/
+
+
+h1{
+    /* text is aligned on the basis of it's parent element */
+    /* For eg, here width of h1 is 50%, so it will be aligned to center according to 50% */
+    text-align: center;
+    /* border: solid; */
+    width: 50%;
+    text-decoration: brown underline;
+    text-decoration-style: dotted;
+    font-family: impact;
+}
+
+h3{
+    text-align: right;
+    text-decoration: blue overline;
+    text-decoration-style: wavy;
+}
+
+p{
+    /* justify is used to arrange the text accordingly. */
+    text-align: justify;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: 2px;
+    font-size: 20px;
+}
+
+h2{
+    font-weight: 900;
+    text-decoration: line-through;
+    text-decoration-style: double;
+}
+

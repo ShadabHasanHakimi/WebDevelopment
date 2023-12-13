@@ -14,9 +14,13 @@ p {
 button {
   color: cornflowerblue;
   /* background-color: aliceblue; */
-  background: black; /* we can also use background property but in most cases we will don't use it */
+  background: #123f12; /* we can also use background property but in most cases we will don't use it */
 }
 
 /* Color system in CSS */
 /* 1. Named Colors : There are 140-150 colors browser recognizes */
 /* 2. RGB system : In this color is used in the form of combination of r,g and b. for eg: red is rgb(255,0,0), black is rgb(0,0,0), blue is rgb(0,0,255) */
+/* 3. Hexadecimal or Hex system : In this system the color is defined as a code like #FFFFFF */
+/* The first two letters are for r, followed by g and then b */
+/* Letters used in this system : 0,1,2,3,4,5,6,7,8,9,A,B,C,D,E and F : Total 16 */
+
