@@ -1,0 +1,79 @@
+/* 
+* - universal selector - selects all elments in the doc
+h1, h3, span ,etc - element selector
+
+#myId - Id selector(Id should be unique for each element)
+
+.myClass - class selector(Class of multiple elements can be same)
+
+Descendent selector - div p - it selects all the paragraph inside the div tag
+
+Adjacent sibling combinator - p+h3 - it selects h3 that comes immediately after any paragraph
+
+Child Combinator - span>button - selects all buttons which are direct children of spans.
+
+Attribute selector - input[attr="value"] - selects elements based on the presence or value of a given attribute.
+
+Importance : id>class>element
+*/
+
+*{
+    font-family: 'Courier New';
+    /* background-color: wheat; */
+}
+h1, h3{     /* we can group multiple elements if we want to give similar properties to multiple elements */
+    color: #b92b27;
+}
+#login{
+    background-color: white;
+}
+#signup{
+    background-color: #b92b27;
+    color: white;
+}
+.upvote{
+    background-color: green;
+    color: white;
+}
+
+/* Practice question */
+#myId{
+    color: green;
+}
+
+/* Descendent selector - It will change all the elements with same heirarchy */
+/* It is not compulsary that element is a direct child */
+/* p a{
+    color: purple;
+    background-color: yellow;
+} */
+
+.post a{
+    color: purple;
+    background-color: yellow;
+}
+nav a{
+    color: hotpink;
+}
+
+/* Adjacent Sibling Combinator */
+p+h3{
+    text-decoration: underline;
+}
+.upvote+button{
+    background-color: cornflowerblue;
+    color: darkblue;
+}
+
+/* Child Combinator : only on direct child */
+div>input{
+    background-color: blanchedalmond;
+}
+
+/* Attribute selector */
+input[type="text"]{
+    color: red;
+}
+input[type="password"]{
+    color: green;
+}
