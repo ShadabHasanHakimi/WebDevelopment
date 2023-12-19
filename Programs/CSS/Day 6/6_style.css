@@ -17,6 +17,30 @@ Attribute selector - input[attr="value"] - selects elements based on the presenc
 Importance : id>class>element
 */
 
+/* 
+Pseudo classes: A keyword added to a selecor that specifies a special state of the selected element(s)
+- :hover : used to change element properties when hovered
+- :active : when a button or element is cliked
+- :checked : used for radio or checkbox 
+- :nth-of-type : used for nth elements
+*/
+
+/* 
+Pseudo Elements : A keyword added to a selector that lets you style a specific part of the selected element(s)
+- ::first-letter
+- ::first-line
+- ::selection : used to change properties of selected text or area
+*/
+
+/* 
+Selector specificity
+id>class,attr,pseudo-class>element,pseudo-element
+*/
+
+/* 
+Inline specificity : If we change properties using inline css then, it will be highest priority.
+*/
+
 *{
     font-family: 'Courier New';
     /* background-color: wheat; */
@@ -76,4 +100,46 @@ input[type="text"]{
 }
 input[type="password"]{
     color: green;
+}
+
+/* Pseudo classes */
+
+button:hover{
+    background-color: black;
+    color: white;
+}
+h3:hover{
+    text-decoration: none;
+}
+
+/* :active */
+button:active{
+    background-color: pink;
+}
+p:active{
+    font-weight: bold;
+    color: green;
+}
+
+/* :checked */
+input[type="radio"]:checked + label{
+    color: red;
+    font-weight: bold;
+}
+
+/* :nth-of-type() */
+/* every 2nth element will be selected */
+div:nth-of-type(2n){        
+    background-color: blanchedalmond;
+}
+
+/* Pseudo Elements */
+h1::first-letter{
+    color: pink;
+}
+p::first-line{
+    color: blue;
+}
+p::selection{
+    background-color: beige;
 }
