@@ -41,6 +41,10 @@ id>class,attr,pseudo-class>element,pseudo-element
 Inline specificity : If we change properties using inline css then, it will be highest priority.
 */
 
+/* 
+!important : Highest priority, we cannot change properties if it is !important
+*/
+
 *{
     font-family: 'Courier New';
     /* background-color: wheat; */
@@ -143,3 +147,8 @@ p::first-line{
 p::selection{
     background-color: beige;
 }
+
+/* Use of important */
+/* h1{
+    color: blue !important;
+} */
