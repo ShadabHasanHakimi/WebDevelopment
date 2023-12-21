@@ -1,0 +1,66 @@
+/*
+Box Model in CSS
+- Height : By default, it sets the content area height of the element.
+- Width : it sets the content area width of the element
+- Border : used to set an element's border
+border-width, border-style, border-color
+- Padding
+- Margin : used to set spacing on the outside of the border.
+*/
+
+/* 
+Border sides : to control individual side of the box
+- border-left
+- border-right
+- border-top
+- border-bottom
+
+Border radius : used to round the corners of an element's outer border edge
+*/
+
+/* 
+
+*/
+
+div{
+    height: 200px;
+    width: 500px;
+    background-color: pink;
+    /* border-width: 2px;
+    border-style: solid;
+    border-color: black; */
+    /* Border shorthand : width|style|color */
+    border: 2px solid black;
+    /* border-bottom: 5px dashed blue;*/
+    border-radius: 10px;
+    /* We can also toggle every corner seperately */
+    /* border-top-right-radius: 10px; */
+    /* padding: 50px; */
+    /* Padding short hand */
+
+    /* top-bottom|left-right */
+    padding: 10px 15px;
+
+    /* top|left&right|bottom */
+    padding: 10px 15px 20px;
+
+    /* clockwise : top|right|bottom|left */
+    padding: 10px 20px 30px 50px;
+
+    margin: 30px;
+    /* We can also use margin for all the sides seperately */
+    /* It is same like padding shorthand */
+    margin: 20px 30px 40px 50px;
+
+}
+
+h1{
+    border: 2px dotted green; 
+}
+
+button{
+    border: 2px solid black;
+    border-radius: 10px;
+    padding-left: 25px;
+    padding-right: 25px;
+}
