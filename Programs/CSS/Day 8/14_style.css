@@ -1,0 +1,14 @@
+/* Alpha Channel: it sets the opacity for a color and ranges from 0 to 1 */
+/* It is denoted by rgba(r,g,b,a) */
+/* It ranges from 00 to ff in hexcode format and last two values in hexcode represents it. */
+
+div{
+    height: 200px;
+    width: 200px;
+    /* background-color: rgba(255, 0, 0, 0.53); */
+    background-color: #4dff00ff;
+}
+#opacity{
+    background-color: #ffa511;
+    opacity: 0.4;
+}
