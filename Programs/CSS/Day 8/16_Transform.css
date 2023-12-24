@@ -2,8 +2,28 @@
 /* 
 1. Rotate
     transform: rotate(45deg); 
+2. Scale
+    transform: scale(0.5) [half of the current size]
+    transform: scale(1.5) [1.5 times of the current size]
+3. Translate
+    transform: translate(50px, 50px);   [shifts div 50px on x and 50px on y
+    transform: translateX(10px);
+    transform: translateY(10px);
+*/
 
+/* 
+Box Shadow: It adds shadow effects around an element's frame.
+    box-shadow: x offset| y offset| blurr radius| color
+    box-shadow: 2px 2px 10px green;
+*/
 
+/* 
+BG image: used to add bg image
+    background-image: url("...");
+    background-size: contain|cover|auto;
+    contain: it will repeat the image for fixing it 
+    cover: it will crop the image for fizing it
+    auto: it will neither crop nor repeat the image
 */
 
 section{
@@ -15,7 +35,7 @@ div{
     text-align: center;
     background-color: #7aa874;
     border: 2px solid black;
-    margin: 10px;
+    margin: 10px auto;
 }
 
 div:nth-of-type(2n){
@@ -28,4 +48,29 @@ div:nth-of-type(3n){
 /* Transform */
 #one{
     transform: rotate(45deg);
+}
+#two{
+    /* only x axis will be affected */
+    /* transform: scaleX(0.5);  */
+    /* only y axis will be affected */
+    /* transform: scaleY(0.5);  */
+    transform: scale(0.5);
+}
+#three{
+    transform: translate(-100px, 10px);
+}
+#four{
+    transform: skew(-30deg);
+}
+#five{
+    transform: rotate(30deg) translate(150px) skew(45deg);
+}
+#shadow{
+    box-shadow: 2px 2px 8px black;
+}
+#bgimage{
+    width: 500px;
+    height: 500px;
+    background-image: url("./Assets/alex-shuper-yI7WlUIJ96w-unsplash.jpg");
+    background-size: cover;
 }
