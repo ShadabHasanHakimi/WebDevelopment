@@ -3,9 +3,11 @@ Position Property: The position CSS property sets how an element is positioned i
 The top, right, bottom, and left properties determine the final location of positioned elements.
     -static: the top, right, bottom, left, and z-index properties have no effect.
         This is the default value.
-    -relative: 
-    -absolute
-    -fixed
+    -relative: the offset is relative to itself based on the values of top, right, bottom and left
+    -absolute: The element is removed from the normal document flow, and no space is created for the element in the page layout.
+        It is positioned relative to it's closest positioned ancestor, if any, otherwise, it is placed relative to the initial containing block.
+    -fixed: The element is removed from the normal document flow, and no space is created for the element in the page layout.
+        It is the positioned relative to the initial containin block established by the viewport
 */
 
 div{
@@ -20,4 +22,30 @@ div{
 #static{
     background-color: yellow;
     position: static;
+    top: 100px;     /*No effect because position is static*/
+    left: 100px;
+}
+#relative{
+    background-color: yellow;
+    position: relative;
+    top: 100px;    /* will be shifted relative to other div */
+    left: 100px;
+}
+#absolute{
+    background-color: yellow;
+    position: absolute;
+    top: 100px;    
+    left: 100px;
+}
+#fixed{
+    background-color: yellow;
+    position: fixed;
+    top: 100px;    
+    left: 100px;
+}
+#sticky{
+    background-color: yellow;
+    position: sticky;
+    top: 100px;    
+    left: 100px;
 }
