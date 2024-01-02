@@ -7,7 +7,7 @@ The top, right, bottom, and left properties determine the final location of posi
     -absolute: The element is removed from the normal document flow, and no space is created for the element in the page layout.
         It is positioned relative to it's closest positioned ancestor, if any, otherwise, it is placed relative to the initial containing block.
     -fixed: The element is removed from the normal document flow, and no space is created for the element in the page layout.
-        It is the positioned relative to the initial containin block established by the viewport
+        It is the positioned relative to the initial containing block established by the viewport
 */
 
 div{
