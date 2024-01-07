@@ -1,5 +1,26 @@
 /* Flexible box layout: It is one dimensional layout method for arranging items in 
     rows or columns. Helps in making websites responsive */
+
+/* 
+Flexbox Direction: It sets how flex items are placed in the flex container, along which
+axis and direction. By default row.
+    flexbox-direction: row; - main axis, left to right
+    row-reverse; - main axis, right to left
+    column; - main axis, top to bottom
+    column-reverse; - main axis, bottom to top
+*/
+/* 
+Justify content: Tells how the browser distributes between and around content items along
+the main-axis.
+    justify-content: flex-start;
+    flex-end;
+    center;
+    ***For extra space left on sides***
+    space-between; - no space on the corners
+    space-around; - half space will go in right and half in left
+    space-evenly; - space on corners and btw content will be same
+*/
+
 #container{
     height: 300px;
     width: 80%;
@@ -7,14 +28,16 @@
     margin: 10px auto;
     border: 2px solid black;
     display: flex;
-    flex-direction: column;
-}
+    /* flex-direction: column; */
+    justify-content: space-between;
+} s
 h1{
     text-align: center;
 }
 #container div{
     height: 100px;
-    width: 300px;
+    /* width: 300px; */
+    width: 100px;
     color: white;
     text-align: center;
     font-size: large;
