@@ -1,0 +1,95 @@
+/* 
+Flex Wrap: Sets whether flex items are forced onto one line or can wrap onto
+multiple lines.
+    flex-wrap: nowrap;
+    flex-wrap: wrap; - it will arrange elements according to dimensions, the items
+        which can fit in the axis will be displayed and the next element will be in next line
+    flex-wrap: wrap-reverse; - it will wrap the element in cross direction
+*/
+
+/* 
+Align Items: It distributes items along the cross axis whereas justify content distributes
+items in horizontal axis.
+    align-items: flex-start; - by default top is the flex start
+    flex-end;
+    center;
+    baseline; - text will be in same line
+*/
+
+/* 
+Align Content: it sets the distribution of space between and around content items along
+a flexbox's cross-axis.
+    align-content: flex-start|flex-end|center;
+    space-between|space-around|evenly;
+    baseline;
+
+*/
+
+/* 
+Align self: Align an item along the cross axis. It is like align items, but it works for 
+individual item. Align self has more priority than align items.
+    align-self: flex-start;
+    flex-end;
+    center;
+    baseline;
+*/
+
+/* 
+Flex Sizing: it sets the initial main size of a flex item.
+    flex-basis: 100px;
+    flex-grow: 1; - It specifies how much of the flex container's remaining space should 
+    be assigned to the flex item's main size.
+    flex-shrink: 1; - It sets the shrink factor of a flex item.
+*/
+
+/* flex shorthand
+    flex-grow|flex-shrink|flex-basis
+    flex: 2 2 100px;
+
+    flex-grow|flex-basis
+    flex: 2 100px;
+    
+    flex-grow(without unit)
+    flex: 2;
+    
+    flex-basis(with unit)
+    flex: 100px;
+*/
+
+#container {
+  height: 600px;
+  width: 80%;
+  background-color: azure;
+  margin: 10px auto;
+  border: 2px solid black;
+  display: flex;
+  /* flex-wrap: wrap; */
+  flex-direction: row;
+  align-content: flex-start;
+}
+#orange{
+    align-self: flex-end;
+    /* if main axis is row wise than width will be changed and if the main axis is column wise then height will be changed */
+    /* flex-basis: 100px; */
+    /* orange box will take all the remaining space */
+    flex-grow: 1;
+    /* we can set max and min width */
+    max-width: 300px;
+}
+#blue{
+    /* this box will shrink 2 times faster. */
+    flex-shrink: 2;
+}
+h1 {
+  text-align: center;
+}
+#container div {
+  height: 100px;
+  width: 100px;
+  color: white;
+  text-align: center;
+  font-size: large;
+}
+
+
+

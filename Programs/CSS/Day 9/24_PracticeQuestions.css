@@ -1,0 +1,38 @@
+#container{
+    width: 400px;
+    height: 400px;
+    border: 2px solid lightseagreen;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+}
+#child{
+    width: 100px;
+    height: 100px;
+    font-size: 50px;
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: gray;
+    text-align: center;
+    font-weight: 550;
+}
+#nav{
+    height: 30px;
+    width: 900px;
+    border: 2px solid lightseagreen;
+    background-color: pink;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: center;
+    border-radius: 10px;
+}
+#option{
+    height: 50px;
+    width: 80px;
+    font-size: 24px;
+    margin: 2.5px;
+    line-height: 50px;
+}
