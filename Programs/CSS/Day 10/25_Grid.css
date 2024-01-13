@@ -1,0 +1,56 @@
+/* CSS grid: Setting a container's display to grid will make all children grid items. */
+/* Grid is generally used for 2-d representation of elements, for 1-d representation 
+flex is preferred. */
+/* 
+For eg: 
+container{
+    display: grid;
+}
+*/
+/* Grid have 3 components: grid lines, grid cell and grid track 
+
+Grid template: They define the lines and track sizing.
+    grid-template-rows: 100px 100px 100px; - creates three rows/tracks with 100px of height.
+    grid-template-columns: 100px 100px 100px;
+Repeat is used to divide all available space:
+    grid template-rows: repeat(3, 1fr); - It means 3 elements will be given 1 fraction each
+    grid template-rows: repeat(3, 1fr);
+
+Grid Gap: used to define gaps between the lines.
+    row-gop: 10px;
+    column-gap: 10px;
+    grid-gap: row-gap col-gap;
+
+Grid columns: Defines an item's starting and ending position inside the column.
+    grid-column-start: line_number;
+    grid-column-end: line_number;
+
+    grid-column: start_col/ end_col;
+    grid-column: start_col/ span number;
+Similarly for grid rows.
+*/
+
+.container{
+    width: 600px;
+    height: 300px;
+    background-color: yellow;
+    display: grid;
+    grid-template-rows: 50px 50px 50px;
+    /* row-gap: 10px; */
+    grid-template-columns: 150px 150px 150px; /* We can also use auto */
+    /* column-gap: 30px; */
+    grid-gap: 10px 30px;
+}
+.item{
+    width: 100px;
+    height: 50px;
+    background-color: greenyellow;
+    border: 2px solid black;
+    text-align: center;
+}
+#one{
+    /* grid-column-start: 1;
+    grid-column-end: 3; */
+    grid-column: 1/3;
+    grid-row: 1/3;
+}
