@@ -30,16 +30,25 @@ Grid columns: Defines an item's starting and ending position inside the column.
 Similarly for grid rows.
 */
 
+/* 
+Properties of Grid 
+    Justify-items|justify-self: start|end|center|right|left
+    align-items|align-self: start|end|center
+    place-items|place-self: start|end
+*/
+
 .container{
     width: 600px;
     height: 300px;
     background-color: yellow;
     display: grid;
-    grid-template-rows: 50px 50px 50px;
+    grid-template-rows: 100px 100px 100px;
     /* row-gap: 10px; */
     grid-template-columns: 150px 150px 150px; /* We can also use auto */
     /* column-gap: 30px; */
     grid-gap: 10px 30px;
+    justify-items: center;
+    align-items: center;
 }
 .item{
     width: 100px;

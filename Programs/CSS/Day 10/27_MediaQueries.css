@@ -1,0 +1,44 @@
+h1{
+    background-color: blue;
+}
+div{
+    width: 100px;
+    height: 100px;
+    background-color: black;
+}
+/* @media(width:500px){      Note: changes will be when width is exactly 500px
+    h1{
+        color: white;
+        background-color: red;
+    }  
+    div{
+        background-color: blue;
+    } 
+} */
+/* min-width is used for width is greater than given value */
+/* max-width is used for width less than the given value */
+/* and is used for a range */
+@media(min-width: 500px) and (max-width: 700px){
+    h1{
+        color: white;
+        background-color: red;
+    }  
+    div{
+        background-color: blue;
+    } 
+}
+@media(orientation: landscape){
+    h1{
+        background-color: aqua;
+        color: brown;
+    }
+}
+/* @media (max-width: 200px){
+    h1{
+        color: white;
+        background-color: red;
+    }  
+    div{
+        background-color: blue;
+    } 
+} */

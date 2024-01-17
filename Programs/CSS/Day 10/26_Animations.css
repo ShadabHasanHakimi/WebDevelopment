@@ -1,0 +1,61 @@
+/* Syntax
+@keyframes myName{
+    from{font- size: 20px;}
+    to{font-size: 40px}
+} */
+/* 
+animation-name
+    duration
+    timing-function
+    delay
+    iteration-count: 1|2...|infinite
+    direction: normal|reverse|alternate
+*/
+
+/* 
+% in Animation
+    from-0%
+    to-0%
+    We can also use percentages::after  
+        0%{
+            ...
+        }
+        50%{
+            ...
+        }
+        100%{
+            ...
+        }
+*/
+
+#box{
+    height: 100px;
+    width: 300px;
+    background-color: pink;
+
+    /* animation-name: colorAnimate;
+    animation-duration: 2s;
+    animation-timing-function: ease-in;
+    animation-delay: 0;
+    animation-iteration-count: infinite;
+    animation-direction: alternate; */
+
+    animation: colorAnimate 2s ease-in 0s infinite alternate;
+}
+@keyframes fontAnimation{
+    from{
+        font-size: 20px;
+    }
+    to{
+        font-size: 40px;
+    }
+}
+@keyframes colorAnimate{
+    from{
+        background-color: green;
+    }
+    to{
+        background-color: blue;
+        border-radius: 15px;
+    }
+}
