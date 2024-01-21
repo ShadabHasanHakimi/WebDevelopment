@@ -9,7 +9,7 @@
 img {
   width: 100%;
   border-radius: 25px;
-}
+} 
 
 h2 {
   color: #d56f3e;
@@ -27,4 +27,10 @@ h4 {
 #pets {
   display: flex;
   justify-content: space-evenly;
+}
+
+@media(max-width: 375px){
+    #pets{
+        flex-wrap: wrap;
+    }
 }
