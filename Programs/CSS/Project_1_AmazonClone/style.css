@@ -1,0 +1,9 @@
+@font-face {
+    font-family: AmazonEmber;
+    src: url("AmazonEmber/Amazon\ Ember.ttf");
+}
+  
+*{
+    margin: 0;
+    font-family: AmazonEmber;
+}
