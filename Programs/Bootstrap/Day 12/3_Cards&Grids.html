@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cards in Bootstrap</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="card" style="width: 18rem; margin: 20px">
+      <img
+        src="https://th.bing.com/th/id/OIP.RtJWBsRiiylzB9bchIAzygHaNW?w=115&h=183&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+        class="card-img-top"
+        alt="iron man"
+      />
+      <div class="card-body">
+        <h5 class="card-title">Iron Man</h5>
+        <p class="card-text">
+          Iron Man is a superhero appearing in American comic books published by
+          Marvel Comics. Co-created by writer and editor Stan Lee, developed by
+          scripter Larry Lieber, and designed by artists Don Heck and Jack Kirby
+        </p>
+        <a
+          href="https://www.bing.com/search?pglt=41&FORM=U523MF&PC=U523&q=Iron+man&FORM=ANNAB1"
+          class="btn btn-primary"
+          target="_blank"
+          >About</a
+        >
+      </div>
+    </div>
+
+    <div class="container text-center">
+      <!-- grid in bootstrap in divided into 12 columns -->
+      <!-- for equal distribution of columns -->
+      <div class="row">
+        <div class="col bg-success">one</div>
+        <div class="col bg-danger">two</div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col bg-success">one</div>
+        <div class="col bg-danger">two</div>
+        <div class="col bg-success">three</div>
+      </div>
+      <br>
+      <!-- for inequal distribution -->
+      <div class="row">
+        <div class="col-3 bg-success">one</div>
+        <div class="col-4 bg-danger">two</div>
+        <div class="col-5 bg-success">three</div>
+      </div>
+      <br>
+    </div>
+  </body>
+</html>
