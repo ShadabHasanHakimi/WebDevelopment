@@ -39,7 +39,7 @@ console.log("Negative slice of arr: ", arr.slice(-2));
 
 let num = ["zeroeth", "first", "second", "third", "fourth", "fifth"];
 console.log(num.splice(4)); // fourth and fifth will be deleted
-console.log(num.splice(0,2)); // here elements in range from 0 to 2 will be deleted
+console.log(num.splice(0,2)); // here two elements from 0th index will be deleted
 console.log("num: ",num);
 console.log(num.splice(0,0,"zeroeth", "first")); // no elements will be deleted and zeroeth and first will be added
 console.log("num: ",num);
