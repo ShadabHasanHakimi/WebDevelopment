@@ -29,3 +29,13 @@ function printName(name, age){
 }
 printName("Shadab", 20);
 printName("Adab"); // If we pass only one value
+
+// Function expressions: we can store a function value in a variable
+let sum = function(a, b){
+    console.log((a+b));
+}
+console.log(sum(1,2));
+
+// High order function: High order function does one or both of the below:
+// -takes one or multiple functions as arguments
+// -returns a function
