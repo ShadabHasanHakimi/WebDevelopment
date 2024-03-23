@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extracting data from a form</title>
+</head>
+<body>
+    <div>
+        <form action="/action">
+            <label for="username">
+                Username: 
+                <input type="text" id="username" placeholder="Enter username...">
+            </label>
+            <br>
+            <br>
+            <label for="age">
+                Enter your age: 
+                <input type="number" name="" id="age" max="30">
+            </label>
+            <br>
+            <br>
+            <label for="email">
+                Enter email id: 
+                <input type="email" name="" id="email" placeholder="Enter your email id...">
+            </label>
+            <br>
+            <br>
+            Gender:
+            <input type="radio" name="gender" id="male" checked>
+            <label for="male">
+                male
+            </label>
+            <input type="radio" name="gender" id="female">
+            <label for="female">
+                female
+            </label>
+            <input type="radio" name="gender" id="others">
+            <label for="others">
+                others
+            </label>
+            <br>
+            <br>
+            <button type="reset">Reset</button>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <div>
+        <h1>My text editor:</h1>
+        <p></p>
+        <input type="text" name="" id="editor">
+    </div>
+    <script src="./31_ExtractDataFromForm.js"></script>
+</body>
+</html>
