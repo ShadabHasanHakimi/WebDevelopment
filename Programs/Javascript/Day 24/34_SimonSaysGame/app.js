@@ -1,6 +1,8 @@
 let gameSeq = [];
 let userSeq = [];
 
+let highScore = 0;
+
 let started = false;
 let level = 0;
 
@@ -58,7 +60,10 @@ function checkAns(idx){
         }
     }
     else{
-        h2.innerText = `Game over! Press any key to start`;  
+        if(level>highScore){
+            highScore = level;
+        }
+        h2.innerHTML = `Highest Score = ${highScore} </br> Game over! Your score was ${level}! Press any key to start!`;  
         reset();
     }
 }

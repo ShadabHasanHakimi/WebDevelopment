@@ -9,7 +9,8 @@ body{
 
 .bg{
     height: 100vh;
-    background-image: url("./bg.jpg");
+    width: 100%;
+    background-image: url("./image.png");
     background-repeat: no-repeat;
     background-size: max(1800px, 100vw);
 }
@@ -17,7 +18,7 @@ body{
 .btn{
     height: 13rem;
     width: 13rem;
-    border-radius: 20%;
+    border-radius: 50%;
     border: 5px solid black;
     margin: 2.5rem;
 }
@@ -31,15 +32,19 @@ body{
 
 .red{
     background-color: #d95980;
+    border-bottom-right-radius: 10%;
 }
 .green{
     background-color: cyan;
+    border-bottom-left-radius: 10%;
 }
 .yellow{
     background-color: #f99b45;
+    border-top-right-radius: 10%;
 }
 .purple{
     background-color: #819ff9;
+    border-top-left-radius: 10%;
 }
 
 .flash{
@@ -54,9 +59,26 @@ body{
     .btn{
         height: 9rem;
         width: 9rem;
-        border-radius: 20%;
+        border-radius: 50%;
         border: 5px solid black;
         margin: 1rem;
+    }
+
+    .red{
+        background-color: #d95980;
+        border-bottom-right-radius: 10%;
+    }
+    .green{
+        background-color: cyan;
+        border-bottom-left-radius: 10%;
+    }
+    .yellow{
+        background-color: #f99b45;
+        border-top-right-radius: 10%;
+    }
+    .purple{
+        background-color: #819ff9;
+        border-top-left-radius: 10%;
     }
 }
 
@@ -72,7 +94,7 @@ body{
     .btn{
         height: 13rem;
         width: 13rem;
-        border-radius: 20%;
+        border-radius: 50%;
         border: 5px solid black;
         margin: 1rem;
     }

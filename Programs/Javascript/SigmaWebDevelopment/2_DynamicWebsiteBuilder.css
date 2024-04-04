@@ -1,0 +1,40 @@
+.thumbnail img{
+    height: 110px;
+    border-radius: 5%;
+}
+.thumbnail{
+    position: relative;
+}
+.card{
+    width: 50%;
+    height: 105px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.926);
+    color: white;
+    padding: 10px;
+    justify-content: space-between;
+}
+
+.title p{
+    font-size: 0.8rem;
+}
+
+.title{
+    margin: 10px;
+    width: 80%;
+}
+
+.duration{
+    position: absolute;
+    bottom: 4px;
+    right: 5px;
+    color: white;
+    background-color: rgb(29, 29, 29);
+    border-radius: 3px;
+    z-index: 10;
+    padding: 30x;
+    font-size: 14px;
+}
