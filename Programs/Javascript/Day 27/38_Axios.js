@@ -41,3 +41,17 @@ async function catFacts() {
 
 // Random Image of dogs
 
+let urlDogs = "https://dog.ceo/api/breeds/image/random";
+
+async function dogPics(){
+  try{
+    let res = await axios.get(urlDogs);
+    console.log(res.data.message);
+    document.querySelector(".bg").innerHTML = `<img src="${res.data.message}"/>`;
+  }
+  catch(e){
+    console.log("Error: ", e);
+  }
+}
+
+dogPics();
