@@ -1,0 +1,3 @@
+node_modules: The node_modules folder containes every installed dependency for your project.
+
+package-lock.json: It records the exact version of every installed dependency, including its sub-dependencies and their versions
