@@ -1,3 +1,11 @@
 node_modules: The node_modules folder containes every installed dependency for your project.
 
 package-lock.json: It records the exact version of every installed dependency, including its sub-dependencies and their versions
+
+package.json: This files contains descriptive and functional metadata about a project, such as a name, version, and dependencies. We can download node_modules using package.json using command "npm install". For any project we can initialize package.json using command "npm init".
+
+Installation of packages locally: npm install <-package-name->
+
+Installation of packages globally: npm install -g <-package-name->
+npm link <-package-name->
+Generally, packages are installed locally.
