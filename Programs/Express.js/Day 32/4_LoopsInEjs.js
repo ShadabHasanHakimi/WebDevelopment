@@ -8,5 +8,9 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "/views"));
 
 app.get("/", (req, res)=>{
-    app.render("4_LoopsInEjs.ejs");
+    res.render("4_LoopsInEjs.ejs");
 });
+
+app.listen(port, ()=>{
+    console.log(`Listening to the port ${port}`);
+})
