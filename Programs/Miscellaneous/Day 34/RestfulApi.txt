@@ -1,0 +1,17 @@
+RESTful API's are used in CRUD (Create, Read, Update, Delete) operations.
+
+These are a set of rules which define how to use API's. Follow the link for the rules : https://stackoverflow.blog/2020/03/02/best-practices-for-rest-api-design/
+
+CRUD operations:
+1. GET retrieves resources
+2. POST submits new data to the server
+3. PUT updated existing data
+4. PATCH update existing data partially
+5. DELETE removes data
+
+Creating RESTful API's:
+GET - /posts - to get data for all posts - INDEX(main)
+POST - /posts - to add a new post - CREATE 
+GET - /posts/:id - to get one post(using id) - VIEW
+PATCH - /posts/:id - to update specific post - UPDATE 
+DELETE - /posts/:id - to delete specific post - DESTROY
