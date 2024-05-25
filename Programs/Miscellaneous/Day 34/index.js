@@ -35,6 +35,20 @@ app.get("/posts", (req, res) => {
     res.render("index.ejs", {posts});
 });
 
+// add post
+app.get("/posts/new", (req, res) => {
+    res.render("new.ejs");
+});
+
+// this will post request
+app.post("/posts", (req, res) =>{
+    let {username, content} = req.body;
+    posts.push({username, content});
+    console.log(username, content);
+    // res.redirect() is used to redirect the page after request is complete
+    res.redirect("/posts");
+});
+
 app.listen(port, ()=>{
     console.log(`listening to the port ${port}`);
 });
