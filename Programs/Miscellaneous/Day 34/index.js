@@ -7,6 +7,9 @@ const port = 8080;
 
 const path = require("path");
 
+// using uuid package to create unique uuid
+const {v4: uuidv4} = require("uuid");
+
 app.use(express.urlencoded({extended: true}))
 
 app.set("view engine", "ejs");
@@ -17,18 +20,29 @@ app.use(express.static(path.join(__dirname, "public")));
 
 let posts = [
     {
+        id: uuidv4(),
         username: "shadabhasanhakimi",
         content: "I love coding!",
     },
     {
+        id: uuidv4(),
         username: "adabhasan",
         content: "Hardword is the key for success!",
     },
     {
+        id: uuidv4(),
         username: "shafatkhan",
         content: "Jaipur ka gunda hu mai!",
     },
 ];
+
+app.get("/posts/:id", (req, res) => {
+    let {id} = req.params;
+    // posts.find() finds posts according to their id
+    let post = posts.find((p) => id === p.id);
+    console.log(post);
+    res.render("show.ejs", {post});
+});
 
 // Get Posts
 app.get("/posts", (req, res) => {
