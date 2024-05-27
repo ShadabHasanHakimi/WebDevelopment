@@ -7,6 +7,8 @@ const port = 8080;
 
 const path = require("path");
 
+const  bodyParser = require("body-parser");
+app.use(bodyParser.json());
 // using uuid package to create unique uuid
 const {v4: uuidv4} = require("uuid");
 
@@ -61,6 +63,17 @@ app.post("/posts", (req, res) =>{
     console.log(username, content);
     // res.redirect() is used to redirect the page after request is complete
     res.redirect("/posts");
+});
+
+app.patch("/posts/:id", (req, res) => {
+    let {id} = req.params;
+    let newContent = req.body.content;
+    console.log(id);
+    console.log(newContent);
+    let post = posts.find((p) => id === p.id);
+    post.content = newContent;
+    console.log(post);
+    res.send("patch request working");
 });
 
 app.listen(port, ()=>{
