@@ -1,0 +1,21 @@
+What is a Database?
+-It is a collection of data in a format that can be easily accessed.
+
+Why Databases?
+-can store large data
+-features like security, scalability etc.
+-Easier to insert, update or delete data
+
+
+SQL databases/Relational db: Data stored in the form of tables and uses SQL to interact with databases. For eg: MySQL, Oracle, etc
+
+NoSQL databases/Non Relational db: Data stored in document/key-val/graphs etc. and does not use SQL to interact with databases. For eg: mongoDb, Cassandra, Neo4j etc.
+
+
+SQL: Structured query Language
+-Sql is a programming language used to interact with relational databases.
+
+
+Table in SQL:
+-columns -> Design(Schema)
+-Rows -> Tuples
