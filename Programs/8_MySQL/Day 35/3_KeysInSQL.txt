@@ -1,0 +1,11 @@
+What are Keys?
+-Keys are special columns in the table.
+
+Primary Keys
+- It is a column(or set of columns) in a table that uniquely identifies each row. (a uniques id)
+There is only 1 PK & it should be NOT null.
+
+Foreign Keys
+- It is a column(or set of columns) in a table that refers to the primary key in
+FKs can have duplicate & null values.
+There can be multiple FKs.

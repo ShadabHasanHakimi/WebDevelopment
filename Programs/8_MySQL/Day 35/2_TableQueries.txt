@@ -1,0 +1,25 @@
+Table Queries in SQL:
+1. Create
+2. Insert 
+3. Update 
+4. Alter
+5. Truncate
+6. Delete 
+
+1. Create table: Used to define schema/columns of a table.
+CREATE TABLE user(
+    id INT,
+    age INT,
+    name VARCHAR(30) NOT NULL, -> name should not be null 
+    email VARCHAR(50) UNIQUE, -> every email should be unique
+    followers INT DEFAULT 0, -> default followers and following count will be 0
+    following INT DEFAULT 0,
+    CONSTRAINT age_check CHECK (age >= 13) -> to check whether the age of the user is greater/equal to 13 or not
+    -> age_check is optional to write
+);
+
+Constraints: Rules for data in the table.
+1. NOT NULL: columns cannot have a null value
+2. UNIQUE: all values in column are different
+3. DEFAULT: sets the default value of a column
+4. CHECK: it can limit the values allowed in a column

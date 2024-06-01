@@ -7,9 +7,12 @@
 </head>
 <body>
     <h1>Edit your post</h1>
-    <h2><%= post.username %></h2>
-    <textarea name="photo" id="">Enter link to your photo...</textarea>
-    <textarea name="caption" id=""><%= post.caption %>
+    <h2>@<%=post.username%></h2>
+    <form method="post" action="/posts/<%=post.id%>?_method=PATCH">
+        <!-- <textarea name="photo" id="">Enter link of your photo...</textarea> -->
+        <textarea name="caption" id=""><%= post.caption %></textarea>
+        <button type="submit">Submit</button>
+    </form>
     </textarea>
 </body>
 </html>

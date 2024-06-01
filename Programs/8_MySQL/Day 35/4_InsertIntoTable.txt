@@ -1,0 +1,24 @@
+- Syntax for inserting data into table is:
+
+INSERT INTO table_name
+(colname1, colname2);
+VALUES
+(col1_v1, col2_v1),
+(col1_v2, col2_v2);
+
+
+-For eg:
+
+INSERT INTO user
+(id, age, name, email, followers, following);
+VALUES
+(1, 14, "adam", "adam@yahoo.in", 241, 112),
+(2, 18, "bob", "bob123@gmail.com", 321, 123);
+
+
+-SELECT command: Selects and Show data from the DB.
+Syntax: SELECT col1, col2 FROM table_name;
+
+Syntax(to show all): SELECT * FROM table_name;
+
+-For eg: SELECT id, name, age FROM user;

@@ -11,9 +11,12 @@
         <h2>@<%= post.username %></h2>
         <img src="<%= post.photo %>" alt="">
         <p><%= post.caption %></p>
-        <form method="get" action="http://localhost:8080/<%=post.id%>">
+        <form method="get" action="http://localhost:8080/posts/<%=post.id%>/edit">
             <button>Edit</button>
+            <% } %>
         </form>
-    <% } %>
+        <form method="get" action="http://localhost:8080/posts/new">
+            <button>Add new post</button>
+        </form>
 </body>
 </html>
