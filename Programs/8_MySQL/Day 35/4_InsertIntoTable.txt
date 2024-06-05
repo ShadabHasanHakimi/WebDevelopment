@@ -10,7 +10,7 @@ VALUES
 -For eg:
 
 INSERT INTO user
-(id, age, name, email, followers, following);
+(id, age, name, email, followers, following)
 VALUES
 (1, 14, "adam", "adam@yahoo.in", 241, 112),
 (2, 18, "bob", "bob123@gmail.com", 321, 123);

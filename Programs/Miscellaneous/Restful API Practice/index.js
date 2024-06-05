@@ -1,20 +1,45 @@
+// const express = require("express");
+// const app = express();
+// const path = require("path");
+// const ejs = require("ejs");
+
+// const port = 8080;
+
+// app.use(express.json());
+
+// app.use(express.urlencoded({extended: true}));
+
+// app.set("view engine", "ejs");
+// app.set("views", path.join(__dirname, "views"));
+
+// app.use(express.static(path.join(__dirname, "public")));
+
+// const {v4: uuidv4} = require("uuid");
+
 const express = require("express");
 const app = express();
-const path = require("path");
+
 const ejs = require("ejs");
 
 const port = 8080;
+
+const path = require("path");
+
+// using uuid package to create unique uuid
+const {v4: uuidv4} = require("uuid");
 
 app.use(express.json());
 
 app.use(express.urlencoded({extended: true}));
 
+// requiring method-override
+const methodOverride = require("method-override");
+app.use(methodOverride('_method'));
+
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
 app.use(express.static(path.join(__dirname, "public")));
-
-const {v4: uuidv4} = require("uuid");
 
 let posts = [
     {
@@ -42,12 +67,12 @@ app.get("/posts/new", (req, res) => {
 app.post("/posts", (req, res) => {
     let {username, photo, caption} = req.body;
     posts.push({username, photo, caption});
-    console.log(username, photo, caption);
     res.redirect("/posts")
 });
 
 app.get("/posts/:id/edit", (req, res) => {
     let {id} = req.params;
+    console.log(id);
     let post = posts.find((p) => id === p.id);
     res.render("edit.ejs", {post});
 });

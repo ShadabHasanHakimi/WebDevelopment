@@ -1,0 +1,29 @@
+-Where clause is used to define some conditions and select data from table according to those conditions.
+
+SELECT col1, col2 FROM table_name
+WHERE conditions;
+
+
+-For eg:
+SELECT * FROM user
+WHERE followers >= 200;
+
+
+-Operators in WHERE clause
+1. Arithmetic Operators: +, -, *, /, %
+2. Comparison Operators: =, !=, >, >=, <, <=
+3. Logical Operators: AND, OR, NOT, IN, BETWEEN, ALL, LIKE, ANY
+4. Bitwise Operators: &(Bitwise AND), |(Bitwise OR)
+
+
+-Frequently used Operators
+1. AND: to check for both conditions to be true
+2. OR: to check for one of the conditions to be true
+3. BETWEEN: selects for a given range
+For eg: WHERE age BETWEEN 15 AND 17;
+4. IN: matches any value in the list
+For eg: WHERE email IN ("bob123@gmail.com",...);
+5. NOT: to negate the given condition
+For eg: WHERE name NOT IN ("adam", ...);
+
+

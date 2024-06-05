@@ -1,0 +1,8 @@
+-Order by Clause: To sort in ascending(ASC) or descending order(DESC).
+
+SELECT col1, col2 FROM table_name
+ORDER BY col_name(s) ASC;
+
+For eg:
+SELECT * FROM user
+ORDER BY followers DESC; 

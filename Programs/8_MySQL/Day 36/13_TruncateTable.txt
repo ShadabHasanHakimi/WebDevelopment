@@ -1,0 +1,2 @@
+-Truncate(to delete table's data): DROP TABLE deletes the table completely whereas TRUNCATE TABLE only deletes data of the table and the table still exists.
+TRUNCATE TABLE table_name;

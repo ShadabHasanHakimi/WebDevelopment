@@ -1,0 +1,12 @@
+-Update(to update existing rows):
+UPDATE table_name
+SET col1=val1, col2=val2
+WHERE condition;
+
+-For eg:
+UPDATE user
+SET followers = 600
+WHERE age>18;
+
+-By default we cannot update a table in SQL directly, we have to specify below line
+SET SQL_SAFE_UPDATES = 0;

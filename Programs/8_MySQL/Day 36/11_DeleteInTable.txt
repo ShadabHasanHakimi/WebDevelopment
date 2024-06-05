@@ -1,0 +1,7 @@
+-Delete(to delete existing rows):
+DELETE FROM table_name
+WHERE condition;
+
+-For eg:
+DELETE FROM table_name
+WHERE age<16;

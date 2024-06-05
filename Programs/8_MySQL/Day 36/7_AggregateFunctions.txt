@@ -1,0 +1,21 @@
+-Aggregate functions: Aggregate functions perform a calculation on a set of values, and return a single value.
+1. COUNT(): below eg shows number of users with age = 14
+SELECT count(age)
+FROM user
+WHERE age = 14;
+
+2. MAX(): below eg shows user with highest followers
+SELECT max(followers)
+FROM user;
+
+3. MIN(): below eg shows user with minimun followers
+SELECT min(followers)
+FROM user;
+
+4. SUM(): below eg will give sum of following of all the users
+SELECT sum(following)
+FROM user;
+
+5. AVG(): below eg will give avg of age of all the users
+SELECT avg(age)
+FROM user;

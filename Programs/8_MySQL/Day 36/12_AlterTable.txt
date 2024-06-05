@@ -1,0 +1,20 @@
+-Alter(to change the schema): name, datatype, constraints, add, delete
+
+-Add column
+ALTER TABLE table_name
+ADD COLUMN column_name datatype constraint;
+
+-Drop columnALTER TABLE table_name
+DROP COLUMN column_name;
+
+-Rename table
+ALTER TABLE table_name
+RENAME TO new_table_name;
+
+-Rename column
+ALTER TABLE table_name
+CHANGE COLUMN old_name new_name datatype constraint;
+
+-Modify column(modify datatype/ constraint)
+ALTER TABLE table_name
+CHANGE COLUMN col_name new_datatype new_constraint;

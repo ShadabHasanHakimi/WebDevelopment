@@ -1,0 +1,33 @@
+Group by clause: Group rows that have the same values into summary rows.
+It collects data from multiple records and gropus the result by one or more column.
+
+SELECT col1, col2
+FROM table_name
+GROUP BY col_name(s);
+
+For eg:
+SELECT count(id)
+FROM user
+GROUP BY age;
+
+-Above eg will give us the group of users according to their age.
+
+*Generally we use group by with some aggregation function.
+
+
+-Having Clause: Similar to Where i.e. applies some condition on rows.
+But it is used when we want to apply any condition after grouping.
+
+SELECT col1, col2
+FROM table_name
+GROUP BY col_name(s)
+HAVING condition;
+
+-WHERE  is for table, HAVING is for a group
+-Grouping is necessary for HAVING
+
+For eg: 
+SELECT age, followers
+FROM table_name
+GROUP BY age
+HAVING condition;

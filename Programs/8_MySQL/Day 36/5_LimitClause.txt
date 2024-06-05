@@ -1,0 +1,9 @@
+-LIMIT clause: Sets an upper limit on number of (tuples) rows to be returned
+
+SELECT col1, col2 FROM table_name
+LIMIT number;
+
+For eg: 
+SELECT * FROM user
+LIMIT 1;
+
