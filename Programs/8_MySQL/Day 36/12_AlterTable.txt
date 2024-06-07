@@ -4,7 +4,8 @@
 ALTER TABLE table_name
 ADD COLUMN column_name datatype constraint;
 
--Drop columnALTER TABLE table_name
+-Drop column
+ALTER TABLE table_name
 DROP COLUMN column_name;
 
 -Rename table
