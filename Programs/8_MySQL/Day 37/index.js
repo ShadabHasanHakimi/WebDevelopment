@@ -1,16 +1,19 @@
 const { faker } = require("@faker-js/faker");
 const mysql = require("mysql2");
+const path = require("path");
+const express = require("express");
+const app = express();
+
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "/views"));
 
 // below we are creating connection to my sql workbench
 const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  database: 'delta_app',
-  password: '@shadab786'
+  host: "localhost",
+  user: "root",
+  database: "delta_app",
+  password: "@shadab786",
 });
-
-// we can pass queries using a variable
-let q = "INSERT INTO user (id, username, email, password) VALUES ?";
 
 // inserting data in bulk using faker
 
@@ -20,28 +23,39 @@ let getRandomUser = () => {
     faker.string.uuid(),
     faker.internet.userName(),
     faker.internet.email(),
-    faker.internet.password()
+    faker.internet.password(),
   ];
 };
 
-let data = [];
-for(let i = 0; i<100; i++){
-  data.push(getRandomUser());
-}
 
-try{
-  connection.query(q, [data], (err, result)=>{
-    if(err) 
-      throw err;
-    // result is a array of tables
-    console.log(result);
-    // console.log(result.length);
-    // console.log(result[0]);
-    // console.log(result[1]);
-  });
-}
-catch(err){
-  console.log(err);
-}
+app.get("/", (req, res) => {
+  let q = "SELECT COUNT(*) AS userCount FROM user";
+  try {
+    connection.query(q, (err, result) => {
+      if (err) throw err;
+      let count = result[0].userCount;
+      res.render("home.ejs", {count});
+    });
+  } catch (err) {
+    console.log(err);
+    res.send("some error in DB!");
+  }
+});
 
-connection.end();
+app.listen("8080", () => {
+  console.log("app is listening to port 8080!");
+});
+// try{
+  //   connection.query(q, [data], (err, result)=>{
+    //     if(err)
+    //       throw err;
+  //     // result is a array of tables
+  //     console.log(result);
+//     // console.log(result.length);
+//     // console.log(result[0]);
+//     // console.log(result[1]);
+//   });
+// }
+// catch(err){
+//   console.log(err);
+// }
