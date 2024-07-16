@@ -1,0 +1,10 @@
+- updateOne(): updates only one document that match a specified filter even thoug multiple documents may match.
+db.student.updateOne({name:"adam"}, {$set: {marks: 99}})
+
+if marks is already there, then its value will be updated, otherwise new field marks will be added
+
+-updateMany(): updates all the documents that matches the filter.
+
+- replaceOne(): replaces only one document that match a specified filter even though multiple documents may match the filter.
+db.student.replaceOne({name: "catlyn"}, {name: "pappu", marks: 53, city: "patna"})
+replaceOne() replaces whole document but the id will be same.

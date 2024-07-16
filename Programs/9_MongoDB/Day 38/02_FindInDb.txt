@@ -1,0 +1,11 @@
+- For searching documents like age<20, marks>80, etc we use operators in MongoDB.
+- Operators in MongoDB: https://www.mongodb.com/docs/manual/reference/operator/
+
+1. For eg: Find students where marks>75:
+db.student.find({marks: {$gt: 75}})
+
+2. Find students who live in Delhi or Mumbai:
+db.student.find({city: {$in: ["Delhi", "Mumbai"]}})
+
+3. find students who scored > 75 or live in delhi:
+db.student.find({$or: [{marks: {$gt: 75}}, {city: "delhi"}]})

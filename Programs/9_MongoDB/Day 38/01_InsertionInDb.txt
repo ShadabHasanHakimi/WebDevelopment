@@ -1,0 +1,23 @@
+- We can insert data in db using JSON format
+- inserting single document
+db.student.insertOne({name: "shadab", age: 20, marks: 84})
+
+- We can insert another document with different attributes also, unlike sql
+db.student.insertOne({name: "vikalp", age: 21, marks: 84, city: "kota"})
+
+- MongoDB generates id for every document inserted which acts as primary key for that document
+
+- inserting multiple documents at a time
+db.student.insertMany([{name: "vikalp", age: 21, marks: 84, city: "kota"}, {name: "shadab", age: 20, marks: 84}])
+
+- db.student.find() is used to print all the documents and ctrl+l is used to clear screen in mongosh.
+
+- For finding or reading specific document, we can use:
+db.collection.find({key: value})
+For eg: db.student.find({age: 20})
+It returns cursor(reference), which helps in looping through the data.
+
+- For finding or reading specific document, but only one document, we can use:
+db.collection.findOne({key: value})
+For eg: db.student.findOne({age: 20})
+It returns actual document

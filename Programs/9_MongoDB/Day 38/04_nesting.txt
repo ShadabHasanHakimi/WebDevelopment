@@ -1,0 +1,6 @@
+- We can do nesting in BSON 
+for eg: 
+{name: "farah", performance: {marks: 88, grade: "A"}}
+
+- So we can access marks like
+db.student.findOne({"performance.marks": 88})

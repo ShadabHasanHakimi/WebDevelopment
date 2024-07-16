@@ -1,0 +1,3 @@
+- A library that creates a connection between MongoDB and Node.js Javascript runtime environment.
+- It is a package of MongoDB.
+- It is an ODM(Object Data modeling) Library.
