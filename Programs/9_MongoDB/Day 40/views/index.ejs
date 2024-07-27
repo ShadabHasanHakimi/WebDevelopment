@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Whatsapp</title>
+    <!-- do not give full path to the css file because we have already shown the path in express.static() in index.js -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h3>All Chats:</h3>
+    <form action="/chats/new">
+        <button>New Chat</button>
+    </form>
+    <% for(chat of chats){ %>
+        <div class="chat">
+            <p>From: <i><%= chat.from %></i></p>
+            <div class="msg">
+                <p><%= chat.msg %></p>
+            </div>
+            <p>Received by: <i><%= chat.to %></i></p>
+            <form action="/chats/<%=chat.id%>/edit" method="get">
+                <button>Edit</button>
+            </form>
+            <form action="/chats/<%=chat.id%>?_method=DELETE" method="post">
+                <button>Delete</button>
+            </form>
+            <hr>
+            <!-- splitting the date string on the basis of blank space -->
+            <p><%= chat.created_at.toString().split(" ")[4] %></p>
+            <p><%= chat.created_at.toString().split(" ").slice(0, 4).join("-") %></p>
+            
+            <p><%= chat.updated_at %></p>
+        </div>
+        <br>
+    <% } %>
+</body>
+</html>
