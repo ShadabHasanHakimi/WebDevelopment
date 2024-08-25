@@ -1,0 +1,4 @@
+-JSX: JavaScript Extension Syntax
+-It lets us write HTML directly inside JS.
+-JSX is not pure JS, so we cannot use all syntax of js in jsx.
+-The code of jsx is intenally transpiled(converted) into jsx with the help of Babel.

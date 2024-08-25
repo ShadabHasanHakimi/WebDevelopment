@@ -1,0 +1,14 @@
+In express, middlewares are functions that come into play after the server receives the request and before the response is sent to the client.
+
+- Middlewares already used:
+1. methodOverride: for using req like DELETE, etc
+2. bodyParser: for parsing data in the body of the req
+3. express.static: for serving static files like css to frontend
+4. express.urlencoded: for accessing data in req
+
+What do middlewares do?
+-Middleware functions can perform the following tasks:
+1. Execute any code
+2. Make changes to the request and the response objects
+3. End the request-response cycle
+4. Call the next middleware function in the stack

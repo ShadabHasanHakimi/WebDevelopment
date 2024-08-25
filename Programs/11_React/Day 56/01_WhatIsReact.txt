@@ -1,0 +1,5 @@
+-React is a JS library for creating UI.
+-Official website of react is "react.dev"
+-We use components to create UI. Components are the reusable piece of code like functions.
+-Components have pre-defined HTML, CSS and JS code.
+-The react code is neither HTML or JS completely, rather it is JSX.

@@ -1,0 +1,32 @@
+<% layout("/layouts/boilerplate") %>
+<body>
+    <div class="row">
+        <div class="col-8 offset-2">
+            <h3>Listing Details:</h3>
+            <div class="card">
+                <img src="<%= listing.image %>" alt="listing_image" class="show-img card-img-top">
+                <div class="card-body">
+                    <p class="card-text"><b><%= listing.title %></b></p>
+                    <ul>
+                        <li><%= listing.description %></li>
+                        <!-- toLocaleString("en-IN") is used to convert a number into string with commas according to Indian standards -->
+                        <li>&#8377;<%= listing.price.toLocaleString("en-IN") %></li>
+                        <li><%= listing.location %></li>
+                        <li><%= listing.country %></li>
+                    </ul>
+                    <div class="row">
+                        <div class="col-1">
+                            <form action="/listings/<%=listing.id%>/edit" method="get">
+                                <button class="btn btn-dark edit-btn">Edit</button>
+                            </form></div>
+                        <div class="col-1">
+                            <form action="/listings/<%=listing.id%>?_method=DELETE" method="post">
+                                <button class="btn btn-dark">Delete</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
