@@ -7,7 +7,7 @@
                 <img src="<%= listing.image %>" alt="listing_image" class="show-img card-img-top">
                 <div class="card-body">
                     <p class="card-text"><b><%= listing.title %></b></p>
-                    <ul>
+                    <ul style="padding: 0;">
                         <li><%= listing.description %></li>
                         <!-- toLocaleString("en-IN") is used to convert a number into string with commas according to Indian standards -->
                         <li>&#8377;<%= listing.price.toLocaleString("en-IN") %></li>

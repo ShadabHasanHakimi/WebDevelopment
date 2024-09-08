@@ -107,3 +107,6 @@ body{
 .show-img{
     height: 30vh;
 }
+ul {
+    list-style-type: none;
+}
