@@ -3,6 +3,7 @@
 
     const forms = document.querySelectorAll('.needs-validation');
 
+    // loop over forms and prevent submission if validation fails
     Array.from(forms).forEach(form => {
         form.addEventListener('submit', event => {
             if (!form.checkValidity()) {

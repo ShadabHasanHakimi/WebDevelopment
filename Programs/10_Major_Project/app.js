@@ -8,10 +8,8 @@ const path = require("path");
 // for using layout function and ejs-mate
 const ejsMate = require("ejs-mate");
 app.engine("ejs", ejsMate);
-
 // Require Listing DB : 6
 const Listing = require("./models/listing.js");
-
 // for PUT request
 const methodOverride = require("method-override");
 
@@ -19,10 +17,9 @@ const methodOverride = require("method-override");
 const MONGO_URL = "mongodb://127.0.0.1:27017/wanderlust";
 
 const wrapAsync = require("./utils/wrapAsync.js");
-
 const ExpressError = require("./utils/ExpressError.js");
-
-const { listingSchema } = require("./schema.js");
+const { listingSchema, reviewSchema } = require("./schema.js");
+const Review = require("./models/review.js");
 
 main()
   .then(() => {
@@ -61,6 +58,17 @@ const validateListing = (req, res, next) => {
   }
 };
 
+const validateReview = (req, res, next) => {
+  let { error } = reviewSchema.validate(req.body);
+
+  if (error) {
+    let errMsg = error.details.map((el) => el.message).join(",");
+    throw new ExpressError(400, errMsg);
+  } else {
+    next();
+  }
+};
+
 // index route
 app.get(
   "/listings",
@@ -82,28 +90,6 @@ app.post(
   "/listings",
   validateListing,
   wrapAsync(async (req, res, next) => {
-    // let {title, description, image, price, country, location} = req.body;
-    // or
-    // let listing = req.body;
-
-    // we can used joi for schema validation
-    // joi is a npm package
-    // if(!req.body.listing){
-    //     throw new ExpressError(400, "Send valid data for listing")
-    // }
-    // if(!newListing.title){
-    //   throw new ExpressError(400, "Title is missing!");
-    // }
-    // if(!newListing.description){
-    //   throw new ExpressError(400, "Description is missing!");
-    // }
-    // if(!newListing.price){
-    //   throw new ExpressError(400, "Price is missing!");
-    // }
-    // if(!newListing.location){
-    //   throw new ExpressError(400, "Location is missing!");
-    // }
-
     const newListing = new Listing(req.body.Listing);
     await newListing.save();
     res.redirect("/listings");
@@ -115,7 +101,8 @@ app.get(
   "/listings/:id",
   wrapAsync(async (req, res) => {
     const { id } = req.params;
-    const listing = await Listing.findById(id);
+    // populate will send reviews with body
+    const listing = await Listing.findById(id).populate("reviews");
     res.render("./listings/show.ejs", { listing });
   })
 );
@@ -164,6 +151,31 @@ app.delete(
     res.redirect("/listings");
   })
 );
+
+// reviews post route
+app.post("/listings/:id/reviews", validateReview, wrapAsync(async(req, res) => {
+  let listing = await Listing.findById(req.params.id);
+  let newReview = new Review(req.body.review);
+  listing.reviews.push(newReview);
+
+  await newReview.save();
+  await listing.save();
+
+  res.redirect(`/listings/${listing._id}`);
+}));
+
+// Delete route for reviews
+app.delete("/listings/:id/reviews/:reviewId", wrapAsync(async(req, res) => {
+  let {id, reviewId} = req.params;
+
+  // deleting review from review array of listing (for this we will use pull operator)
+  // we will pull the review with reviewId from the array
+  await Listing.findByIdAndUpdate(id, {$pull: {reviews: reviewId}});
+  // Deleting review
+  await Review.findByIdAndDelete(reviewId);
+
+  res.redirect(`/listings/${id}`);
+}))
 
 // add a testing data
 // app.get("/testListing", async (req, res) => {
