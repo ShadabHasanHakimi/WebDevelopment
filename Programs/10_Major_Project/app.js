@@ -8,18 +8,19 @@ const path = require("path");
 // for using layout function and ejs-mate
 const ejsMate = require("ejs-mate");
 app.engine("ejs", ejsMate);
-// Require Listing DB : 6
-const Listing = require("./models/listing.js");
 // for PUT request
 const methodOverride = require("method-override");
 
 // connecting wonderlust database : 4
 const MONGO_URL = "mongodb://127.0.0.1:27017/wanderlust";
 
-const wrapAsync = require("./utils/wrapAsync.js");
 const ExpressError = require("./utils/ExpressError.js");
-const { listingSchema, reviewSchema } = require("./schema.js");
-const Review = require("./models/review.js");
+const session = require("express-session");
+const flash = require("connect-flash");
+
+// using router
+const listings = require("./routes/listing.js");
+const reviews = require("./routes/review.js")
 
 main()
   .then(() => {
@@ -42,155 +43,35 @@ app.use(methodOverride("_method"));
 // for using static files like css
 app.use(express.static(path.join(__dirname, "/public")));
 
+const sessionOptions = {
+  secret: "mysupersecretcode",
+  resave: false,
+  saveUninitialized: true,
+  cookie: {
+    expires: Date.now() + 7 * 24 * 60 * 60 * 1000,
+    maxAge: 7 * 24* 60 * 60 * 1000,
+    httpOnly: true,
+  },
+}
+
+app.use(session(sessionOptions));
+
+// use flash before routes
+app.use(flash());
+
+app.use((req, res, next) => {
+  res.locals.success = req.flash("success");
+  res.locals.error = req.flash("error");
+  next();
+})
+
 // creating basic api : 3
 app.get("/", (req, res) => {
   res.send("root working!");
 });
 
-const validateListing = (req, res, next) => {
-  let { error } = listingSchema.validate(req.body);
-
-  if (error) {
-    let errMsg = error.details.map((el) => el.message).join(",");
-    throw new ExpressError(400, errMsg);
-  } else {
-    next();
-  }
-};
-
-const validateReview = (req, res, next) => {
-  let { error } = reviewSchema.validate(req.body);
-
-  if (error) {
-    let errMsg = error.details.map((el) => el.message).join(",");
-    throw new ExpressError(400, errMsg);
-  } else {
-    next();
-  }
-};
-
-// index route
-app.get(
-  "/listings",
-  wrapAsync(async (req, res) => {
-    const allListings = await Listing.find({});
-    res.render("./listings/index.ejs", { allListings });
-  })
-);
-
-// if we define new route before show route then it will search "new" as id and give an error
-// new route
-app.get("/listings/new", (req, res) => {
-  res.render("./listings/new.ejs");
-});
-
-// post request
-// create route
-app.post(
-  "/listings",
-  validateListing,
-  wrapAsync(async (req, res, next) => {
-    const newListing = new Listing(req.body.Listing);
-    await newListing.save();
-    res.redirect("/listings");
-  })
-);
-
-// show route
-app.get(
-  "/listings/:id",
-  wrapAsync(async (req, res) => {
-    const { id } = req.params;
-    // populate will send reviews with body
-    const listing = await Listing.findById(id).populate("reviews");
-    res.render("./listings/show.ejs", { listing });
-  })
-);
-
-// edit route
-app.get(
-  "/listings/:id/edit", validateListing,
-  wrapAsync(async (req, res) => {
-    const { id } = req.params;
-    const listing = await Listing.findById(id);
-    res.render("./listings/edit.ejs", { listing });
-  })
-);
-
-app.post("/listings/:id", wrapAsync(async (req, res) => {
-  const { id } = req.params;
-  const {
-    title: newTitle,
-    description: newDescription,
-    image: newImage,
-    price: newPrice,
-    location: newLocation,
-    country: newCountry,
-  } = req.body;
-  await Listing.findByIdAndUpdate(
-    id,
-    {
-      title: newTitle,
-      description: newDescription,
-      image: newImage,
-      price: newPrice,
-      location: newLocation,
-      country: newCountry,
-    },
-    { runValidators: true, new: true }
-  );
-  res.redirect("/listings");
-}));
-
-// Delete route
-app.delete(
-  "/listings/:id",
-  wrapAsync(async (req, res) => {
-    const { id } = req.params;
-    await Listing.findByIdAndDelete(id);
-    res.redirect("/listings");
-  })
-);
-
-// reviews post route
-app.post("/listings/:id/reviews", validateReview, wrapAsync(async(req, res) => {
-  let listing = await Listing.findById(req.params.id);
-  let newReview = new Review(req.body.review);
-  listing.reviews.push(newReview);
-
-  await newReview.save();
-  await listing.save();
-
-  res.redirect(`/listings/${listing._id}`);
-}));
-
-// Delete route for reviews
-app.delete("/listings/:id/reviews/:reviewId", wrapAsync(async(req, res) => {
-  let {id, reviewId} = req.params;
-
-  // deleting review from review array of listing (for this we will use pull operator)
-  // we will pull the review with reviewId from the array
-  await Listing.findByIdAndUpdate(id, {$pull: {reviews: reviewId}});
-  // Deleting review
-  await Review.findByIdAndDelete(reviewId);
-
-  res.redirect(`/listings/${id}`);
-}))
-
-// add a testing data
-// app.get("/testListing", async (req, res) => {
-//   let sampleListing = new Listing({
-//     title: "My New Villa",
-//     description: "By the beach",
-//     price: 1200,
-//     location: "Calangute, Goa",
-//     country: "India",
-//   });
-
-//   await sampleListing.save();
-//   console.log("sample was saved");
-//   res.send("successful testing");
-// });
+app.use("/listings", listings);
+app.use("/listings/:id/reviews", reviews);
 
 // for every other not available path
 app.all("*", (req, res, next) => {
