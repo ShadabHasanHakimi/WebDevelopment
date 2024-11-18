@@ -5,6 +5,7 @@ const ExpressError = require("../utils/ExpressError.js");
 const { listingSchema } = require("../schema.js");
 // Require Listing DB
 const Listing = require("../models/listing.js");
+const {isLoggedIn} = require("../middleware.js");
 
 const validateListing = (req, res, next) => {
   let { error } = listingSchema.validate(req.body);
@@ -28,7 +29,8 @@ router.get(
 
 // if we define new route before show route then it will search "new" as id and give an error
 // new route
-router.get("/new", (req, res) => {
+router.get("/new", isLoggedIn, (req, res) => {
+  console.log(req.user);
   res.render("./listings/new.ejs");
 });
 
@@ -36,6 +38,7 @@ router.get("/new", (req, res) => {
 // create route
 router.post(
   "/",
+  isLoggedIn,
   wrapAsync(async (req, res, next) => {
     const newListing = new Listing(req.body.Listing);
     await newListing.save();
@@ -63,6 +66,7 @@ router.get(
 // edit route
 router.get(
   "/:id/edit",
+  isLoggedIn,
   wrapAsync(async (req, res) => {
     const { id } = req.params;
     const listing = await Listing.findById(id);
@@ -73,6 +77,7 @@ router.get(
 // update
 router.post(
   "/:id",
+  isLoggedIn, 
   wrapAsync(async (req, res) => {
     const { id } = req.params;
     const {
@@ -102,6 +107,7 @@ router.post(
 // Delete route
 router.delete(
   "/:id",
+  isLoggedIn,
   wrapAsync(async (req, res) => {
     const { id } = req.params;
     await Listing.findByIdAndDelete(id);
