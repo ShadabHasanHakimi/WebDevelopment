@@ -103,6 +103,10 @@ body{
     border: none !important;
 }
 
+.col-2{
+    margin-left: 1rem;
+}
+
 /* Show page */
 .show-img{
     height: 30vh;
