@@ -114,3 +114,12 @@ body{
 ul {
     list-style-type: none;
 }
+
+/* rating */
+.star-rating{
+    margin-bottom: -2rem;
+}
+
+.star-rating2{
+    margin-bottom: 0.25rem;
+}

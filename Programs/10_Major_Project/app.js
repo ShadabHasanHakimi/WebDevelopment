@@ -1,3 +1,9 @@
+// Requiring dotenv
+if(process.env.NODE_ENV != "production"){
+  require("dotenv").config();
+}
+console.log(process.env.SECRET);
+
 // Require essential packages : 1
 const express = require("express");
 const app = express();
@@ -83,9 +89,9 @@ app.use((req, res, next) => {
 });
 
 // creating basic api : 3
-app.get("/", (req, res) => {
-  res.send("root working!");
-});
+// app.get("/", (req, res) => {
+//   res.send("root working!");
+// });
 
 app.use("/listings", listingsRouter);
 app.use("/listings/:id/reviews", reviewsRouter);

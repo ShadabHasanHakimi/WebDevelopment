@@ -6,6 +6,8 @@ const {validateReview, isLoggedIn, isOwner, isReviewAuthor} = require("../middle
 // Require Listing DB
 const Listing = require("../models/listing.js");
 
+const reviewConstroller = require("../controllers/reviews.js");
+
 // reviews post route
 router.post(
   "/",
@@ -30,18 +32,7 @@ router.delete(
   "/:reviewId",
   isLoggedIn,
   isReviewAuthor,
-  wrapAsync(async (req, res) => {
-    let { id, reviewId } = req.params;
-
-    // deleting review from review array of listing (for this we will use pull operator)
-    // we will pull the review with reviewId from the array
-    await Listing.findByIdAndUpdate(id, { $pull: { reviews: reviewId } });
-    // Deleting review
-    await Review.findByIdAndDelete(reviewId);
-
-    req.flash("success", "Review Deleted!");
-    res.redirect(`/listings/${id}`);
-  })
+  wrapAsync(reviewConstroller.destroyReview)
 );
 
 module.exports = router;
