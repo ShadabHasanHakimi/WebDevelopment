@@ -123,3 +123,9 @@ ul {
 .star-rating2{
     margin-bottom: 0.25rem;
 }
+
+/* map */
+#map{
+    height: 400px;
+    width: 80vh;
+}

@@ -44,11 +44,18 @@ module.exports.createListing = async (req, res, next) => {
 module.exports.renderEditForm = async (req, res) => {
   const { id } = req.params;
   const listing = await Listing.findById(id);
-  res.render("./listings/edit.ejs", { listing });
+
+  let originalImageUrl = listing.image.url;
+  // for changing image attributes using cloudinary
+  originalImageUrl = originalImageUrl.replace("/upload", "/upload/w_250");
+
+  res.render("./listings/edit.ejs", { listing, originalImageUrl });
 };
 
 module.exports.updateListing = async (req, res) => {
   let { id } = req.params;
+
+  console.log("Updating");
 
   let listing = await Listing.findByIdAndUpdate(id, { ...req.body.listing });
   //for updating files

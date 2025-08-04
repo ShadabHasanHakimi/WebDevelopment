@@ -11,17 +11,22 @@
       <h3>Edit your listing:</h3>
       <div class="mb-3">
         <label for="title" class="form-label">Title</label>
-        <textarea name="title" id="" class="form-control" required>
+        <textarea name="listing[title]" id="" class="form-control" required>
 <%=listing.title%></textarea
         >
         <div class="valid-feedback">Title looks good!</div>
       </div>
       <div class="mb-3">
         <label for="description" class="form-label">Description</label>
-        <textarea name="description" id="" class="form-control" required>
+        <textarea name="listing[description]" id="" class="form-control" required>
 <%=listing.description%></textarea
         >
         <div class="invalid-feedback">Please enter a short description!</div>
+      </div>
+      <div class="mb-3">
+        Original Listing Image
+        <br>
+        <img src="<%= originalImageUrl %>" alt="" class="src">
       </div>
       <div class="mb-3">
         <div class="mb-3">
@@ -38,7 +43,7 @@
         <div class="col-md-4">
           <div class="mb-3">
             <label for="price" class="form-label">Price</label>
-            <textarea name="price" id="" class="form-control" required>
+            <textarea name="listing[price]" id="" class="form-control" required>
       <%=listing.price%></textarea
             >
             <div class="invalid-feedback">Price should be valid!</div>
@@ -47,7 +52,7 @@
         <div class="col-md-8">
           <div class="mb-3">
             <label for="country" class="form-label">Country</label>
-            <textarea name="country" id="" class="form-control" required>
+            <textarea name="listing[country]" id="" class="form-control" required>
       <%=listing.country%></textarea
             >
             <div class="invalid-feedback">Country should be valid!</div>
@@ -56,7 +61,7 @@
       </div>
       <div class="mb-3">
         <label for="location" class="form-label">Location</label>
-        <textarea name="location" id="" class="form-control" required>
+        <textarea name="listing[location]" id="" class="form-control" required>
 <%=listing.location%></textarea
         >
         <div class="invalid-feedback">Location should be valid!</div>
